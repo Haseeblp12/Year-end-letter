@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Private Access</title>
+  <style>
+    body {
+      font-family: "Georgia", serif;
+      background: #f4f1ec;
+      color: #2c2c2c;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+    .box {
+      background: #fffdf8;
+      padding: 40px 35px;
+      border-radius: 6px;
+      max-width: 700px;
+      width: 100%;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      text-align: left;
+      line-height: 1.7;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 10px;
+      font-weight: normal;
+    }
+    .date {
+      text-align: right;
+      font-size: 14px;
+      margin-bottom: 25px;
+      opacity: 0.7;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      font-family: Georgia, serif;
+    }
+    button {
+      margin-top: 20px;
+      padding: 12px;
+      width: 100%;
+      border: none;
+      border-radius: 4px;
+      background: #2c2c2c;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .hint {
+      margin-top: 12px;
+      font-size: 13px;
+      opacity: 0.6;
+      text-align: center;
+    }
+    .error {
+      color: #b00020;
+      margin-top: 10px;
+      text-align: center;
+    }
+    .letter {
+      animation: fadeIn 1.5s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>For You</h2>
+    <div class="date">December 31</div>
+    <p style="text-align:center;">This page opens only if you choose to.</p>
+    <input type="password" id="password" placeholder="Password" />
+    <button onclick="checkPassword()">Open the letter</button>
+    <div class="hint">Hint: the nickname I gave you</div>
+    <div id="error" class="error"></div>
+  </div>  <script>
+    function checkPassword() {
+      const correctPassword = "metalmouth";
+      const userPassword = document.getElementById("password").value;
+      const error = document.getElementById("error");
+
+
+      if (userPassword === correctPassword) {
+        document.body.innerHTML = `
+          <div class="box letter">
+            <div class="date">December 31</div>
+            <p>
+              Hey,<br><br>
+              Well… this is me again. I know you’ll probably think I’m crazy, immature, stupid — maybe even a little too chipku. But this is who I am, and this is my year‑end message to you. Most likely, my last one.
+              <br><br>
+              First of all, I’m sorry. For all the times I hurt you, for the moments I chose myself over us, for being selfish when I should have been more understanding. I did care for you — deeply. You weren’t just my friend, you were family to me, and losing you felt like losing a part of myself.
+              <br><br>
+              I knew it was over on 18 August. I knew I had messed up back then. Still, I waited four months, hoping I could try one last time — not to force anything, just to see if there was still something worth saving. It didn’t work, and I’ve made my peace with that now.
+              <br><br>
+              I want you to know this: you were the most beautiful thing that happened to me. The way you cared, the love you gave, the time you shared — those memories were the best time of my life. I will cherish them forever. Thank you for standing by me, for listening to me, for being there when you didn’t have to be.
+              <br><br>
+              I truly hope you succeed in life and live it exactly the way you want to. May Allah grant you everything your heart desires, in ways better than you ever imagined.
+              <br><br>
+              I never wanted to give up on you or on our friendship. But I don’t have it in me anymore to try to revive something that no longer wants to breathe. So this is me letting go — quietly, respectfully.
+              <br><br>
+              I’m done trying. I’m signing off from annoying you. I won’t text, I won’t disturb your peace anymore. But in my heart, you will always be my best friend — always a part of my family.
+              <br><br>
+              Take care.
+            </p>
+          </div>`;
+      } else {
+        error.textContent = "❌ Wrong password. Try again.";
+      }
+    }
+  </script></body>
+</html>
